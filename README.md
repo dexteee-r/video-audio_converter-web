@@ -1,5 +1,7 @@
 # ytconverter — version web
 
+[![CI](https://github.com/dexteee-r/video-audio_converter-web/actions/workflows/ci.yml/badge.svg)](https://github.com/dexteee-r/video-audio_converter-web/actions/workflows/ci.yml)
+
 Télécharge une vidéo (MP4/WEBM/MKV) ou un audio (MP3/M4A/FLAC/WAV/OGG) depuis YouTube,
 TikTok, Instagram, Vimeo et 1000+ sites, depuis le navigateur. Même moteur que
 l'[app desktop](../video-audio_converter) (yt-dlp + FFmpeg), servi par une API FastAPI.
@@ -21,7 +23,7 @@ Pas d'historique ni de playlists pour l'instant (choix volontaire).
 
 ## Lancer en local
 
-Prérequis : Python 3.9+ et **FFmpeg dans le PATH**.
+Prérequis : **Python 3.11+** (exigé par FastAPI et yt-dlp) et **FFmpeg dans le PATH**.
 
 ```powershell
 python -m venv venv
@@ -32,7 +34,10 @@ venv\Scripts\python.exe -m uvicorn server.main:app --reload
 Ouvrir http://localhost:8000. Docs interactives de l'API : lancer avec `YTC_ENABLE_DOCS=1`
 puis http://localhost:8000/api/docs (désactivées par défaut).
 
-Tests : `venv\Scripts\python.exe -m pytest` (39 tests, hors réseau).
+Tests : `venv\Scripts\python.exe -m pytest` (43 tests, hors réseau). La **CI GitHub Actions**
+(`.github/workflows/ci.yml`) les lance à chaque push sur `main` et chaque PR, sur Python 3.11 et 3.13,
+puis vérifie la syntaxe JS et le manifest. Les tests `test_i18n.py` échouent si une traduction FR/EN
+manque ou si un code d'erreur du serveur n'a pas de message.
 Icônes PWA : `python tools/make_icons.py` (nécessite Pillow ; régénère `web/icons/`).
 
 ## Architecture
