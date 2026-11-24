@@ -1,0 +1,4 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+yt-dlp>=2026.6.0      # keep recent: stale versions get throttled to 360p by YouTube
+curl_cffi>=0.10       # browser impersonation for TikTok/Instagram extractors

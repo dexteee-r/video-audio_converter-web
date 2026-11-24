@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+venv/
+.venv/
+
+# Runtime
+downloads/
+*.log
+*.part
+*.ytdl
+
+# Secrets (cookies exported for yt-dlp, env files)
+.env
+cookies.txt
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude / AI assistant
+.claude/
+CLAUDE.md
+tasks/
